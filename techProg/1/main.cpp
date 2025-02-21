@@ -1,16 +1,14 @@
 #include <iostream>
 
-
-
 int main()
 {
-    int a, b, meaning;
+    double a, b, meaning;
     char c;
 
     std::cout << "Input a: ";
     std::cin >> a;
 
-    while (true)
+    do
     {
         std::cout << "Input (+, -, *, /) or C to reset or Q to quit: ";
         std::cin >> c;
@@ -34,7 +32,7 @@ int main()
         std::cin >> b;
         system("cls");
 
-         switch(c)
+        switch(c)
         {
             case '+':
                 meaning = a + b;
@@ -56,14 +54,14 @@ int main()
                     meaning = a / b;
                     std::cout << "Result: " << meaning << "\n";
                     a = meaning;
-                } else 
+                } else {
                     std::cout << "Error: Division by zero!\n";
-                    std::cout << "Result: " << meaning << "\n";
+                }
                 break;
             default:
-                std::cout << "Invalid operator. Please enter one of (+, -, *, /, C, Q).\n";
+                if (c != 'Q') std::cout << "Invalid operator. Please enter one of (+, -, *, /, C, Q).\n";
         }
-    }
+    } while (c != 'Q');
     
     return 0;
 }
