@@ -2,8 +2,9 @@
 #include <ctime>
 
 int globalA;
-unsigned int globalB;
+unsigned int globalB, globalOtvetZ1;
 long double globalMas[5];
+int globalMaxZ2;
 
 // Задание 1
 void Input(int &a, unsigned int &b)
@@ -12,22 +13,14 @@ void Input(int &a, unsigned int &b)
     std::cin >> a >> b;
 }
 
-void sumV1(int a, unsigned int b)
+int sumV1(int a, unsigned int b)
 {   
-    int result = a + b;
-    if (result >= 32 && result <= 126){
-        std::cout << "Sum in type char: " << char(result) << "\nSizeof: " << sizeof(result) <<"\n"; 
-    } else std::cout << "Error!\n";
-    
+    return a + b;
 }
 
 void sumV2()
 {
-    char result = globalA + globalB;
-    if (result >= 32 && result <= 126){
-        std::cout << "Sum in type char: " << char(result) << "\nSizeof: " << sizeof(result) << "\n"; 
-    } else std::cout << "Error!\n";
-   
+    globalOtvetZ1 = globalA + globalB;   
 }
 
 // Задание 2
@@ -46,19 +39,17 @@ long double maxV1(long double (&mas)[5])
     return max;
 }
 
-long double maxV2()
+void maxV2()
 {
     std::cout << "Enter 5 values: ";
     for (int i = 0; i < 5; i++){
         std::cin >> globalMas[i];
     }
 
-    long double max = globalMas[0];;
+    globalMaxZ2 = globalMas[0];
     for (int i = 1; i < 5; i++){
-        if (max < globalMas[i]) max = globalMas[i];
+        if (globalMaxZ2 < globalMas[i]) globalMaxZ2 = globalMas[i];
     }
-
-    return max;
 }
 
 void Task5(int &button5, char &button)
@@ -77,9 +68,9 @@ void Task5(int &button5, char &button)
 void menu(int &a, unsigned int &b, long double (&mas)[5])
 {
     char button;
-    int button5;
+    int button5, otvet;
     bool flag5 = true;
-    while (true){   
+    while (button != 'Q'){   
         if (flag5){
             std::cout << "\n1. Task 1 (V1)\n"<< "2. Task 1 (V2)\n" << "3. Task 2 (V1)\n" << "4. Task 2 (V2)\n" << "5. Random\n" << "Q. Exit\n";
             std::cin >> button;
@@ -88,31 +79,36 @@ void menu(int &a, unsigned int &b, long double (&mas)[5])
             Task5(button5, button);
         }
 
-        if (button == 'Q') break;
-
         system("cls");
         switch (button)
         {
         case '1':
             Input(a, b);
-            sumV1(a, b);
+            otvet = sumV1(a, b); 
+            if (otvet >= 32 && otvet <= 126){
+                std::cout << "Sum in type char: " << char(otvet) << "\nSizeof: " << sizeof(otvet) <<"\n"; 
+            } else std::cout << "Error!\n";
             break;
         case '2':
             Input(globalA, globalB);
             sumV2();
+            if (globalOtvetZ1 >= 32 && globalOtvetZ1 <= 126){
+                std::cout << "Sum in type char: " << char(globalOtvetZ1) << "\nSizeof: " << sizeof(globalOtvetZ1) << "\n"; 
+            } else std::cout << "Error!\n";
             break;
         case '3':
             std::cout << maxV1(mas) << "\n";
             break;
         case '4':
-            std::cout << maxV2() << "\n";
+            maxV2();
+            std::cout << globalMaxZ2 << "\n";
             break;
         case '5':
             button5 = rand() % 4 + 1;
             flag5 = false;
             break;
         default:
-            std::cout << "Error!\n";
+            if (button != 'Q') std::cout << "Error!\n";
         }
     }
     
