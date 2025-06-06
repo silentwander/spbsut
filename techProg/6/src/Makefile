@@ -1,5 +1,5 @@
 all:
-	g++ -Wall -Werror -Iinclude main.cpp Doxbase.cpp Passport.cpp StudBilet.cpp -o main
+	g++ -Wall -Werror -Iinclude Doxbase.cpp Passport.cpp StudBilet.cpp main.cpp -o main
 
 run: all
 	./main

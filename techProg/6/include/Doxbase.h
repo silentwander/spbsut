@@ -10,6 +10,12 @@ namespace DoxNamespace {
         Doxbase(int y);
         virtual ~Doxbase();
         
+        // Добавленные конструкторы и операторы
+        Doxbase(const Doxbase& other);
+        Doxbase(Doxbase&& other) noexcept;
+        Doxbase& operator=(const Doxbase& other);
+        Doxbase& operator=(Doxbase&& other) noexcept;
+        
         virtual void print_info() const = 0;
         int get_year() const { return year; }
         

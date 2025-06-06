@@ -12,7 +12,7 @@ using namespace StudBiletNamespace;
 void show_menu() {
     std::vector<Passport> passports;
     std::vector<StudBilet> stud_bilets;
-    int choice;
+    int choice = 0; // Инициализация переменной
 
     while(choice != 6) {
         std::cout << "\n=== Document Manager ===\n"
@@ -24,7 +24,13 @@ void show_menu() {
                   << "6. Exit\n"
                   << "Select option: ";
         std::cin >> choice;
+        
+        // Очистка буфера ввода
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         system("cls");
+        
         switch(choice) {
             case 1: {
                 int y; char s;
@@ -66,14 +72,14 @@ void show_menu() {
                     if(s["year"] == year) count++;
                 }
                 
-                std::cout << "Found " << count << " documents for year " << year << std::endl;
+                std::cout << "Found " << count << " documents for year " << year << "\n";
                 break;
             }
             case 5: {
                 std::cout << "\n=== Statistics ===\n"
-                          << "Total documents: " << Doxbase::get_total_count() << "\n"
-                          << "Passports: " << Passport::get_count() << "\n"
-                          << "Student Tickets: " << StudBilet::get_count() << "\n";
+                << "Total documents: " << Doxbase::get_total_count() << "\n"
+                << "Passports: " << Passport::get_count() << "\n"
+                << "Student Tickets: " << StudBilet::get_count() << "\n";
                 break;
             }
             case 6:

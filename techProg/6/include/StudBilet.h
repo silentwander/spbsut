@@ -10,6 +10,12 @@ namespace StudBiletNamespace {
         StudBilet(int y, int num);
         ~StudBilet();
         
+        // Добавленные конструкторы и операторы
+        StudBilet(const StudBilet& other);
+        StudBilet(StudBilet&& other) noexcept;
+        StudBilet& operator=(const StudBilet& other);
+        StudBilet& operator=(StudBilet&& other) noexcept;
+        
         void print_info() const override {
             std::cout << "Student Ticket: Year " << get_year() 
                      << ", Number: " << number << std::endl;
