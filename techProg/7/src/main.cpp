@@ -5,8 +5,6 @@
 #include "../include/DoxTemplate.h"
 #include "../include/Dox.h"
 
-
-
 int main() {
     // Создание процессора для документов
     DoxxTemplate<Doxx> processor;
@@ -18,16 +16,16 @@ int main() {
     processor.addDocument(Doxx("Invoice", "20230520"));
     processor.addDocument(Doxx("Contract", "20221231"));
 
-    // Поиск самого раннего документа
+    // Показатель 1: Самый ранний документ
     try {
         Doxx earliest = processor.getEarliestDocument();
         std::cout << "Earliest document: Type = " << earliest.getType() 
-             << ", Date = " << earliest.getDate() << std::endl;
+                  << ", Date = " << earliest.getDate() << std::endl;
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
 
-    // Подсчёт количества документов типа "Invoice"
+    // Показатель 2: Количество документов типа "Invoice"
     int invoiceCount = processor.countByType("Invoice");
     std::cout << "Number of Invoices: " << invoiceCount << std::endl;
 

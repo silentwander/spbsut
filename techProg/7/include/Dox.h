@@ -1,8 +1,7 @@
 #pragma once
 #include <string>
 
-class Doxx
-{
+class Doxx {
 private:
     std::string type;
     std::string date; // Дата в формате "ГГГГММДД"

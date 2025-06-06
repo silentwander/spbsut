@@ -1,21 +1,24 @@
 #pragma once
-template <class T> 
-class DoxxTemplate
-{
+#include <vector>
+#include <stdexcept>
+#include <string>
+
+template <class T>
+class DoxxTemplate {
 private:
-    vector<DocType> docs; 
+    std::vector<T> docs; // Используем обобщенный тип T
 public:
     // Добавление документа
-    void addDocument(const DocType& doc) {
+    void addDocument(const T& doc) {
         docs.push_back(doc);
     }
 
     // Поиск документа с самой ранней датой
-    DocType getEarliestDocument() const {
+    T getEarliestDocument() const {
         if (docs.empty()) {
-            throw logic_error("No documents to process.");
+            throw std::logic_error("No documents to process.");
         }
-        DocType earliest = docs[0];
+        T earliest = docs[0];
         for (const auto& doc : docs) {
             if (doc.getDate() < earliest.getDate()) {
                 earliest = doc;
@@ -25,7 +28,7 @@ public:
     }
 
     // Подсчёт документов определённого типа
-    int countByType(const string& targetType) const {
+    int countByType(const std::string& targetType) const {
         int count = 0;
         for (const auto& doc : docs) {
             if (doc.getType() == targetType) {
