@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men - Xsilenngh</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo" onclick="location.href='index.html'">Xsilenngh</div>
+        <div class="dropdown">
+            <span>▼</span>
+            <div class="dropdown-content">
+                <a href="models.html">Men</a>
+                <a href="women.html">Women</a>
+                <a href="loyalty.html">Программа лояльности</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="fade-in">
+        <h1>Мужская коллекция</h1>
+        <div class="products">
+            <!-- Пуховик “MEBXX Outer Pleated Down Jacket” -->
+            <div class="card">
+                <div class="card__images">
+                    <div class="image-slider">
+                        <img src="assets/images/куртка1.jpg" alt="Пуховик">
+                        <img src="assets/images/куртка2.jpg" alt="Пуховик">
+                    </div>
+                    <div class="image-controls">
+                        <button class="arrow" onclick="prevImage(this)">←</button>
+                        <button class="arrow" onclick="nextImage(this)">→</button>
+                    </div>
+                </div>
+                <div class="card__bottom">
+                    <div class="card__caption">Пуховик “MEBXX Outer Pleated Down Jacket”</div>
+                    <div class="card__desc">8 990 ₽</div>
+                </div>
+            </div>
+
+            <!-- Джинсы “MEBXX Wrinkled Top Jeans” -->
+            <div class="card">
+                <div class="card__images">
+                    <div class="image-slider">
+                        <img src="assets/images/джинсы1.jpg" alt="Джинсы">
+                        <img src="assets/images/джинсы2.jpg" alt="Джинсы">
+                    </div>
+                    <div class="image-controls">
+                        <button class="arrow" onclick="prevImage(this)">←</button>
+                        <button class="arrow" onclick="nextImage(this)">→</button>
+                    </div>
+                </div>
+                <div class="card__bottom">
+                    <div class="card__caption">Джинсы “MEBXX Wrinkled Top Jeans”</div>
+                    <div class="card__desc">5 390 ₽</div>
+                </div>
+            </div>
+
+            <!-- Куртка “MEBXX Washed PU Leather Jacket” -->
+            <div class="card">
+                <div class="card__images">
+                    <div class="image-slider">
+                        <img src="assets/images/курртка1.jpg" alt="Куртка">
+                        <img src="assets/images/курртка2.jpg" alt="Куртка">
+                    </div>
+                    <div class="image-controls">
+                        <button class="arrow" onclick="prevImage(this)">←</button>
+                        <button class="arrow" onclick="nextImage(this)">→</button>
+                    </div>
+                </div>
+                <div class="card__bottom">
+                    <div class="card__caption">Куртка “MEBXX Washed PU Leather Jacket”</div>
+                    <div class="card__desc">7 990 ₽</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>tg: silentwander</p>
+        <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+        <p>Email: info@teenfashion.ru</p>
+        <p>Xsilenngh - одежда для подростков</p>
+        <p>© 2025 Xsilenngh | Все права защищены</p>
+    </footer>
+
+    <script>
+        function prevImage(button) {
+            const slider = button.parentElement.previousElementSibling;
+            const images = slider.getElementsByTagName('img');
+            let current = 0;
+            for(let i = 0; i < images.length; i++) {
+                if(images[i].style.display !== 'none') {
+                    current = i;
+                    break;
+                }
+            }
+            images[current].style.display = 'none';
+            images[(current - 1 + images.length) % images.length].style.display = 'block';
+        }
+
+        function nextImage(button) {
+            const slider = button.parentElement.previousElementSibling;
+            const images = slider.getElementsByTagName('img');
+            let current = 0;
+            for(let i = 0; i < images.length; i++) {
+                if(images[i].style.display !== 'none') {
+                    current = i;
+                    break;
+                }
+            }
+            images[current].style.display = 'none';
+            images[(current + 1) % images.length].style.display = 'block';
+        }
+    </script>
+</body>
+</html>

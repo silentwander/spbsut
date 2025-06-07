@@ -1,0 +1,141 @@
+/* Simple and clean styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header styles */
+.header {
+    background: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Footer styles */
+.footer {
+    background: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Loyalty program styles */
+.loyalty-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.loyalty-table th, .loyalty-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Product card styles */
+.card {
+    text-align: center;
+    margin: 20px;
+}
+
+.card__images {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.image-slider {
+    display: inline-block;
+    position: relative;
+}
+
+.image-slider img {
+    max-width: 100%;
+    height: auto;
+    display: none;
+}
+
+.image-slider img:first-child {
+    display: block;
+}
+
+.image-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrow {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.arrow:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+/* Discount styling */
+.discount-price {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.old-price {
+    color: #95a5a6;
+    font-size: 0.8em;
+    text-decoration: line-through;
+}
+
+.discount-tag {
+    color: #2ecc71;
+    font-size: 0.8em;
+    display: block;
+    margin-top: 5px;
+}
+
+

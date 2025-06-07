@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Программа лояльности - Xsilenngh</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo" onclick="location.href='index.html'">Xsilenngh</div>
+        <div class="dropdown">
+            <span>▼</span>
+            <div class="dropdown-content">
+                <a href="models.html">Men</a>
+                <a href="women.html">Women</a>
+                <a href="loyalty.html">Программа лояльности</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="fade-in">
+        <h1>Программа лояльности</h1>
+        
+        <div class="tabs">
+            <button onclick="showContent('login')" class="tab-btn active">Войти</button>
+            <button onclick="showContent('register')" class="tab-btn">Регистрация</button>
+        </div>
+
+        <div id="login" class="tab-content active">
+            <form>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Пароль">
+                <button type="submit">Войти</button>
+            </form>
+        </div>
+
+        <div id="register" class="tab-content" style="display: none;">
+            <form>
+                <input type="text" placeholder="Имя">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Пароль">
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+
+        <h2>Уровни программы лояльности</h2>
+        <table class="loyalty-table">
+            <tr>
+                <th>Уровень</th>
+                <th>Бонусы</th>
+                <th>Скидки</th>
+                <th>Промокоды</th>
+            </tr>
+            <tr>
+                <td>Бронзовый</td>
+                <td>5% кэшбэк</td>
+                <td>10% скидка</td>
+                <td>Ежемесячный промокод</td>
+            </tr>
+            <tr>
+                <td>Серебряный</td>
+                <td>10% кэшбэк</td>
+                <td>15% скидка</td>
+                <td>Еженедельный промокод</td>
+            </tr>
+            <tr>
+                <td>Золотой</td>
+                <td>15% кэшбэк</td>
+                <td>20% скидка</td>
+                <td>Ежедневный промокод</td>
+            </tr>
+            <tr>
+                <td>Платиновый</td>
+                <td>20% кэшбэк</td>
+                <td>25% скидка</td>
+                <td>Эксклюзивные промокоды</td>
+            </tr>
+        </table>
+    </main>
+
+    <footer class="footer">
+        <p>tg: silentwander</p>
+        <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+        <p>Email: info@teenfashion.ru</p>
+        <p>Xsilenngh - одежда для подростков</p>
+        <p>© 2025 Xsilenngh | Все права защищены</p>
+    </footer>
+
+    <script>
+        function showContent(contentId) {
+            // Hide all content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.style.display = 'none';
+                content.classList.remove('active');
+            });
+            
+            // Show selected content
+            document.getElementById(contentId).style.display = 'block';
+            document.getElementById(contentId).classList.add('active');
+            
+            // Update buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector('[onclick="showContent(\'' + contentId + '\')"]').classList.add('active');
+        }
+    </script>
+</body>
+</html>
